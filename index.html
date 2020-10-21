@@ -30,17 +30,19 @@
             
     </div> -->
 
-
   <div class="hangmanContainer">
     <h2 class="text-center"> Hanging with Michael Scott </h2>
-    <div class= "totalGuesses" class="float-center">No. of Guesses: <span id='incorrect'> 0 </span> of <span id='wrongLimit'> </span> </div>
+    <div class= "totalGuesses" class="float-center">No. of Guesses: <span id='incorrect'> 0 </span> of <span id='wrongLimit'> 6 </span> </div>
       
       <div id="button">
          Guessed Letter
       </div>
     </div>
-  <div id = "guessLetter">  
-    <input type="text" placeholder="Enter letter" id="letter"/>
+  <div id = "guessPhrase">  
+    <p> Phrase </p>
+    <p id="hiddenAnswer"> This is the phrase </p>
+    <div id="keyboard"> </div>
+    <button class="text" placeholder="Enter letter" id="letter"/>
     <input type="submit" value="Guess Letter"/>
   </div>
 </div>
