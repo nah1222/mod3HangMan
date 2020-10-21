@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let guessedLetters = [];
 
     const fetchWords = () => {
-        //fetches from the backend
+        //fetches from the back end
         fetch(wordBaseUrl)
         //turns into json format
         .then(resp => resp.json())
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const makeGame = (words) => {
         //takes in the words in a readible format. Iterates through each word
-            for(let word in words){
+            for(const word in words){
             //passes word along to new function
                 addToArray(word)
             }
@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // const fetchGames = () => {
     //     fetch(gameBaseUrl)
-    //     .then(response => response.json())
+    //     .then(resp => resp.json())
     //     .then(games => renderGames(games));
     // }
 
