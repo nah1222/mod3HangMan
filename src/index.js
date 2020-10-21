@@ -1,20 +1,38 @@
 document.addEventListener('DOMContentLoaded', () => {
     const gameBaseUrl = "http://localhost:3000/api/v1/games/"
     const wordBaseUrl = "http://localhost:3000/api/v1/words/"
+    let allPhrases = []
 
-    let phrases = []
+    let answer = ' ';
+    let wrongLimit = 6;
+    let currentMistakes = 0;
+    let guessedLetters = [];
 
     const fetchWords = () => {
+        //fetches from the backend
         fetch(wordBaseUrl)
+        //turns into json format
         .then(resp => resp.json())
-        .then(words => makeGame(words))
+        //passes words to new function
+        .then(words => makeGame(words));
     }
 
-    const makeGame = words => {
-        for(var i in words){
-            phrases.push(i, words, [i])
+        const makeGame = (words) => {
+        //takes in the words in a readible format. Iterates through each word
+            for(let word in words){
+            //passes word along to new function
+                addToArray(word)
+            }
         }
-    }
+
+        const addToArray = (word) => {
+            //adds the word to the allPhrases array
+            //we want to be able to call 1 specific word every time a game begins
+            allPhrases.push(words)
+        }
+        return allPhrases
+    
+
     // const fetchWords = () => {
     //     fetch(wordBaseUrl)
     //     .then(resp => resp.json())
@@ -26,8 +44,6 @@ document.addEventListener('DOMContentLoaded', () => {
     //     });
     // }
    
-    
-
     // let buttons = () => {
     //     myButtons = document.getElementById('letterKey');
     //     letters = document.createElement('ul');
@@ -45,30 +61,29 @@ document.addEventListener('DOMContentLoaded', () => {
         
     // }
 
-//     // const fetchGames = () => {
-//     //     fetch(gameBaseUrl)
-//     //     .then(response => response.json())
-//     //     .then(games => renderGames(games));
-//     // }
+    // const fetchGames = () => {
+    //     fetch(gameBaseUrl)
+    //     .then(response => response.json())
+    //     .then(games => renderGames(games));
+    // }
 
-//     const renderWords = (words) => {
-//         for(const word of words) {
-//             renderWord(word)
-//         }
-//     }
+    // const renderWords = (words) => {
+    //     for(const word of words) {
+    //         renderWord(word)
+    //     }
+    // }
 
-//     const renderWord = (word) => {
+    // const renderWord = (word) => {
         
-//         const wordDiv = document.createElement('div')
-//         wordDiv.dataset.id = word.id
-//         wordDiv.innerHTML = `
-//         <h3> ${word.phrase} </h3>
-//         `
-//         document.body.appendChild(wordDiv)
-//     }
-
+    //     const wordDiv = document.createElement('div')
+    //     wordDiv.dataset.id = word.id
+    //     wordDiv.innerHTML = `
+    //     <h3> ${word.phrase} </h3>
+    //     `
+    //     document.body.appendChild(wordDiv)
+    // }
 
 fetchWords();
-
 })
+
 
