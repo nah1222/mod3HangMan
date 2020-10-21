@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let wrongLimit = 6;
     let currentMistakes = 0;
     let guessedLetters = [];
+    let wordStat = null;
 
     const fetchWords = () => {
         //fetches from the back end
@@ -54,11 +55,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // }
 
     const randomPhrase = () => {
-        const answerWord = answer.split(' ').map(letter => (guessedLetters.indexOf(letter) >= 0 ? letter : " _ ")).join(' ');
+        answerWord = answer.split(' ').map(letter => (guessedLetters.indexOf(letter) >= 0 ? letter : " _ ")).join(' ');
 
-        document.getElementById('hiddenAnswer').innerHTML = answerWord
+        document.getElementById('hiddenAnswer').innerHTML = wordStat;
     }
 
+    document.getElementById('incorrect').innerHTML = wrongLimit;
 
 fetchWords();
 //randomWord();
