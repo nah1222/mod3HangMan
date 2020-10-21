@@ -18,31 +18,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
         const makeGame = (words) => {
-        //takes in the words in a readible format. Iterates through each word
-            for(const word in words){
-            //passes word along to new function
-                addToArray(word)
-            }
+            allPhrases = words
+            //generate a random phrase from the array
+            //determine length of word to populate letter total on screen
+            //render "_" for each character onto the DOM
+        console.log(allPhrases)
         }
 
-        const addToArray = (word) => {
-            //adds the word to the allPhrases array
-            //we want to be able to call 1 specific word every time a game begins
-            allPhrases.push(words)
-        }
-        return allPhrases
-    
 
-    // const fetchWords = () => {
-    //     fetch(wordBaseUrl)
-    //     .then(resp => resp.json())
-    //     .then (words => {
-    //         phrases = words
-    //         makeGame()
-    //         // call a function that gets a random phrase from the phrases array 
-    //         // and renders it as a hangman game
-    //     });
-    // }
    
     // let buttons = () => {
     //     myButtons = document.getElementById('letterKey');
@@ -61,27 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
     // }
 
-    // const fetchGames = () => {
-    //     fetch(gameBaseUrl)
-    //     .then(resp => resp.json())
-    //     .then(games => renderGames(games));
-    // }
 
-    // const renderWords = (words) => {
-    //     for(const word of words) {
-    //         renderWord(word)
-    //     }
-    // }
-
-    // const renderWord = (word) => {
-        
-    //     const wordDiv = document.createElement('div')
-    //     wordDiv.dataset.id = word.id
-    //     wordDiv.innerHTML = `
-    //     <h3> ${word.phrase} </h3>
-    //     `
-    //     document.body.appendChild(wordDiv)
-    // }
 
 fetchWords();
 })
