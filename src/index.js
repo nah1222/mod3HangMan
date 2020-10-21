@@ -19,10 +19,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const makeGame = (words) => {
             allPhrases = words
+            const guessPhrase = document.querySelector('#guessPhrase')
+            const randomElement = allPhrase[Math.floor(Math.random() * allPhrases.length)]
             //generate a random phrase from the array
             //determine length of word to populate letter total on screen
             //render "_" for each character onto the DOM
-        console.log(allPhrases)
+        
         }
 
 
