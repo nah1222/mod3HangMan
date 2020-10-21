@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
             for(i = 0; i < word1.length; i++)
             //console.log(word1, word1.length)
                 var wordDiv = document.createElement('div')
-                wordDiv.textContent = "hello"
+                wordDiv.textContent = word1
                 wordDiv.id = word1[i]
                 hidId.append(wordDiv)
                 //console.log(word1[i])
