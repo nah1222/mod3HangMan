@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentMistakes = 0;
     let guessedLetters = [];
     let wordStat = null;
+    let phrase = ' ';
+    let word1 = '';
 
     const fetchWords = () => {
         //fetches from the back end
@@ -32,9 +34,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
         function randomWord() {
             randomElement = allPhrases[Math.floor(Math.random() * allPhrases.length)];
-
-            alert(randomElement.phrase)
+            phrase = randomElement.phrase
+            word1 = phrase.split(' ')
         }
+    
+        const spaces = () => {
+            let hidId = document.getElementById('hiddenAnswer')
+            for(i = 0; i < word1.length; i++)
+            //console.log(word1, word1.length)
+                var wordDiv = document.createElement('div')
+                wordDiv.textContent = "hello"
+                wordDiv.id = word1[i]
+                hidId.append(wordDiv)
+                //console.log(word1[i])
+        }
+        //if I input a key and it matches my divId, change that div's textcontent to the key I submitted  << Guideline for Thursday
+            //document.dataset.id = word.id
+        spaces();
     }
    
     // let buttons = () => {
