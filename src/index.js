@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const wordBaseUrl = "http://localhost:3000/api/v1/words/"
     let allPhrases = []
 
-    let answer = ' ';
+    let randomElement = ' ';
     let wrongLimit = 6;
     let currentMistakes = 0;
     let guessedLetters = [];
@@ -19,15 +19,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const makeGame = (words) => {
             allPhrases = words
-            const guessPhrase = document.querySelector('#guessPhrase')
-            const randomElement = allPhrase[Math.floor(Math.random() * allPhrases.length)]
+            randomWord();
+            // console.log(allPhrases)
+            // const guessPhrase = document.getElementById('guessPhrase')
+            // randomElement = allPhrases[Math.floor(Math.random() * allPhrases.length)]
             //generate a random phrase from the array
             //determine length of word to populate letter total on screen
             //render "_" for each character onto the DOM
-        
+            // guessPhrase
+            // randomElement
+
+        function randomWord() {
+            randomElement = allPhrases[Math.floor(Math.random() * allPhrases.length)];
+
+            alert(randomElement.phrase)
         }
-
-
+    }
    
     // let buttons = () => {
     //     myButtons = document.getElementById('letterKey');
@@ -46,9 +53,15 @@ document.addEventListener('DOMContentLoaded', () => {
         
     // }
 
+    const randomPhrase = () => {
+        const answerWord = answer.split(' ').map(letter => (guessedLetters.indexOf(letter) >= 0 ? letter : " _ ")).join(' ');
+
+        document.getElementById('hiddenAnswer').innerHTML = answerWord
+    }
 
 
 fetchWords();
+//randomWord();
 })
 
 
