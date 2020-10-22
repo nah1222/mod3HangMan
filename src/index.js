@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(words => makeGame(words));
     }
 
+    //api into array
         const makeGame = (words) => {
             allPhrases = words
             randomWord();
@@ -35,7 +36,8 @@ document.addEventListener('DOMContentLoaded', () => {
             //render "_" for each character onto the DOM
             // guessPhrase
             // randomElement
-
+            
+            //generate random word
         function randomWord() {
             randomElement = allPhrases[Math.floor(Math.random() * allPhrases.length)];
             phrase = randomElement.phrase
@@ -56,8 +58,8 @@ document.addEventListener('DOMContentLoaded', () => {
             //document.dataset.id = word.id
         spaces();
     }
-   
     
+    //renders letter buttons
     let keys = () => {
         const keyboard = document.getElementById('keyboard');
         const keyboardUl = document.createElement('ul');
@@ -71,27 +73,9 @@ document.addEventListener('DOMContentLoaded', () => {
             keyboardUl.appendChild(key);
         }
     }
-    // const check = () => {
-    //     key.onclick = () => {
-    //     var guess = (this.innerHTML);
-    //     this.setAttribute("class", "active");
-    //     this.onclick = null;
-    //     for (var i = 0; i < word.length; i++) {
-    //         if (word[i] === guess) {
-    //         guessedLetters[i].innerHTML = guess;
-    //         counter += 1;
-    //         } 
-    //     }
-    //     var g = (word.indexOf(guess));
-    //     if (g === -1) {
-    //         lives -= 1;
-    //         comments();
-    //         animate();
-    //     } else {
-    //         comments();
-    //     }
-    //     }
-    // }
+    
+    
+    //displays lives
     const livesLeft = () => {
         const bodyParts = document.querySelector('#bodyParts');
         bodyParts.innerHTML = `You have ${wrongLimit} lives left!`;
