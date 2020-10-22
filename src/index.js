@@ -10,6 +10,10 @@ document.addEventListener('DOMContentLoaded', () => {
     let wordStat = null;
     let phrase = ' ';
     let word1 = '';
+    let abcs = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
+        'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
+        't', 'u', 'v', 'w', 'x', 'y', 'z'];
+
 
     const fetchWords = () => {
         //fetches from the back end
@@ -53,22 +57,53 @@ document.addEventListener('DOMContentLoaded', () => {
         spaces();
     }
    
-    // let buttons = () => {
-    //     myButtons = document.getElementById('letterKey');
-    //     letters = document.createElement('ul');
-
-    //     for (let i = 0; i < allLetters.length; i++) {
-    //     // let alphabet = letters.id
-    //     const allLettersLi = document.createElement('li');
-    //     allLettersLi.classList.add = 'bet'
-    //         allLettersLi.textContent = allLetters[i];
-            
-    //         myButtons.appendChild(letters);
-    //         letters.appendChild(allLettersLi)
-
-    //     }   
-        
+    
+    let keys = () => {
+        const keyboard = document.getElementById('keyboard');
+        const keyboardUl = document.createElement('ul');
+        for (var i = 0; i < abcs.length; i++) {
+            keyboardUl.dataset.keyboardId = 'letters';
+            const key = document.createElement('li');
+            key.id = "letter";
+            key.innerHTML = abcs[i]
+            // check();
+            keyboard.appendChild(keyboardUl);
+            keyboardUl.appendChild(key);
+        }
+    }
+    // const check = () => {
+    //     key.onclick = () => {
+    //     var guess = (this.innerHTML);
+    //     this.setAttribute("class", "active");
+    //     this.onclick = null;
+    //     for (var i = 0; i < word.length; i++) {
+    //         if (word[i] === guess) {
+    //         guessedLetters[i].innerHTML = guess;
+    //         counter += 1;
+    //         } 
+    //     }
+    //     var g = (word.indexOf(guess));
+    //     if (g === -1) {
+    //         lives -= 1;
+    //         comments();
+    //         animate();
+    //     } else {
+    //         comments();
+    //     }
+    //     }
     // }
+    const livesLeft = () => {
+        const bodyParts = document.querySelector('#bodyParts');
+        bodyParts.innerHTML = `You have ${wrongLimit} lives left!`;
+        if (wrongLimit < 1) {
+            bodyParts.innerHTML = "Game Over";
+        }
+        for(var i = 0; i < guessedLetters.length; i++ ){
+            if (counter + space === guessedLetters.length){
+                bodyParts.innerHTML = "You Win!";
+            }
+        }
+    }
 
     const randomPhrase = () => {
         answerWord = answer.split(' ').map(letter => (guessedLetters.indexOf(letter) >= 0 ? letter : " _ ")).join(' ');
@@ -78,6 +113,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 fetchWords();
 //randomWord();
+keys()
+livesLeft()
 })
 
 
